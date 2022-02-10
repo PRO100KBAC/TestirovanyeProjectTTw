@@ -1,0 +1,40 @@
+﻿<Window x:Class="TestirovanyeProjectTTw.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestirovanyeProjectTTw"
+        mc:Ignorable="d"
+        Title="Snils" Height="300" Width="300">
+    <Grid>
+        <Label>@PRO100KBAC</Label>
+        <StackPanel Orientation="Vertical">
+            <TextBox x:Name="SnilsNumTextBox" Height="30" Margin="50" HorizontalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                        <Style.Resources>
+                            <VisualBrush x:Name="CueBrush" x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
+                                <VisualBrush.Visual>
+                                    <Label Content="001-001-001 01" Foreground="LightGray" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Style.Resources>
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="Background" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+        <Button x:Name="ResultButton" Height="25" Margin="10" Content="Проверить" Click="ResultButtonClick"></Button>
+        <TextBlock x:Name="ResultTextBlock" Height="50" Margin="20" Text="Корректен ли ввод снилс: " HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
